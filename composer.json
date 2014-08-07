@@ -1,0 +1,21 @@
+{
+    "name": "bngnha/phpmvc",
+	"description": "The simple PHP MVC Framework.",
+    "authors": [
+        {
+            "name": "Nha Bui",
+            "email": "bngnha@gmail.com"
+        }
+    ],
+    "require": {
+	    "php": ">=5.3.0"
+    },
+    "autoload": {
+	    "classmap": [
+		    "app/controllers",
+		    "app/models",
+		    "app/tests",
+		    "libraries"
+	    ]
+    }
+}
