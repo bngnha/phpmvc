@@ -1,4 +1,4 @@
 phpmvc
 ======
 
-A sample phpmvc framework
+A simple phpmvc framework
