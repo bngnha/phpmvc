@@ -6,9 +6,9 @@
  * @license     GNU General Public License version 2 or later; see LICENSE
  *
  */
-require __DIR__.'/../vendor/autoload.php';
+require __DIR__. '/../vendor/autoload.php';
 
-require __DIR__.'/Application.php';
+require __DIR__. '/../libraries/application/Application.php';
 
 $app = new Application();
 
