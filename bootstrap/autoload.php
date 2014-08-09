@@ -8,7 +8,7 @@
  */
 require __DIR__. '/../vendor/autoload.php';
 
-require __DIR__. '/../libraries/application/Application.php';
+require __DIR__. '/../system/application/Application.php';
 
 $app = new Application();
 

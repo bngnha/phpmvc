@@ -23,6 +23,5 @@ define('APP_DIR', str_replace("\\", "/", $appDir));
 
 $app = require __DIR__.'/../bootstrap/Autoload.php';
 
+// Execute request
 $app->run();
-
-echo $app;

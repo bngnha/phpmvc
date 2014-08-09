@@ -6,16 +6,11 @@
  * @license     GNU General Public License version 2 or later; see LICENSE
  *
  */
-return array(
 
-	/**
-	 * Provider Class here
-	 */
-	'providers' => array(
-		'ControllerServiceProvider',
-		'RoutingServiceProvider',
-		'ViewServiceProvider',
-		'ExceptionServiceProvider'
-	)
-
-);
+class ViewServiceProvider extends ServiceProvider
+{
+	public function register()
+	{
+		$this->app->instance('view', new View());
+	}
+} 

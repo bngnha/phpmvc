@@ -7,7 +7,10 @@
  *
  */
 
-class Request
+class RoutingServiceProvider extends ServiceProvider
 {
-
+	public function register()
+	{
+		$this->app->instance('router', new Router());
+	}
 } 

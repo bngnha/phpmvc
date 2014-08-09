@@ -55,7 +55,8 @@ class Container implements ArrayAccess
 	 */
 	public function offsetGet($key)
 	{
-		if (!array_key_exists($key, $this->instances)) {
+		if (!array_key_exists($key, $this->instances))
+		{
 			throw new InvalidArgumentException(sprintf('Identifier "%s" is not defined.', $key));
 		}
 

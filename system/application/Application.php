@@ -24,17 +24,13 @@ class Application extends Container
 	 */
 	protected $loadedProviders = array();
 
-
-	protected $controller = 'HomeController';
-	protected $method = 'indexAction';
-	protected $params = [];
-
-	private $response;
-
 	public function __construct()
 	{
+		// Register Request Object
+		$this->instance('request', 'Request');
 	}
 
+	// Step 1: Load config, service provider
 	public function getConfig()
 	{
 		$config = new Filesystem();
@@ -67,7 +63,7 @@ class Application extends Container
 	 * @param  bool   $force
 	 * @return ServiceProvider
 	 */
-	public function register($provider, $options = array())
+	public function register($provider)
 	{
 		$name = is_string($provider) ? $provider : get_class($provider);
 		if (array_key_exists($name, $this->loadedProviders))
@@ -94,37 +90,12 @@ class Application extends Container
 	// Step 2: Dispatch and render
 	public function run()
 	{
-		$url = $this['router']->parseUrl();
+		// Dispatch request to controller
+		$response = $this['router']->dispatch($this['request']);
 
-		if(file_exists('../app/controllers/'. $url[0] .'.php'))
-		{
-			$this->controller = $url[0];
-			unset($url['0']);
-		}
+		// Send data to client
+		$response->send();
 
-		require_once '../app/controllers/'. $this->controller .'.php';
-		$this->controller = new $this->controller;
-
-		if(isset($url[1]))
-		{
-			if(method_exists($this->controller, $url['1']))
-			{
-				$this->method = $url[1];
-				unset($url[1]);
-			}
-		}
-
-		$this->params = $url ? array_values($url) : [];
-		$this->response = $this->controller->callAction($this->method, $this->params);
-	}
-
-	public function dispatch(Request $request)
-	{
-		return (new Router())->dispatch($request);
-	}
-
-	public function __toString()
-	{
-		return $this->response;
+		// Terminal all object
 	}
 } 

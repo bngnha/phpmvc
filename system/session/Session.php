@@ -7,11 +7,10 @@
  *
  */
 
-class RoutingServiceProvider extends ServiceProvider
+class Session
 {
-	public function register()
+	public function __construct()
 	{
-		$this->app->instance('router', new Router());
-		//$this->app['controller'] = new Controller();
+
 	}
 } 

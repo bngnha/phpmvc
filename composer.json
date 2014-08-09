@@ -16,7 +16,7 @@
 		    "app/controllers",
 		    "app/models",
 		    "app/tests",
-		    "libraries"
+		    "system"
 	    ]
     }
 }

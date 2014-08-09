@@ -7,7 +7,7 @@
  *
  */
 
-class Response
+class CookieServiceProvider
 {
 
 } 
