@@ -10,7 +10,7 @@ require __DIR__. '/../vendor/autoload.php';
 
 require __DIR__. '/../system/application/Application.php';
 
-$app = new Application();
+$app = Application::singleton();
 
 $providers = $app->getConfig()['providers'];
 

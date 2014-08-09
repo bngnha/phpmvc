@@ -58,7 +58,7 @@ class View
 	{
 		if(is_object($data))
 		{
-			compact($data);
+			$this->data = compact($data);
 		}
 		else if(!is_array($data))
 		{
