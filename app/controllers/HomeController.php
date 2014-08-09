@@ -15,16 +15,11 @@ class HomeController extends Controller
 	    $params[1] = 1;
         $person = Person::findByColumn('id', $params[1]);
 
-        // Render the home view
-	    if(file_exists(APP_DIR . "views/home/index.php"))
-	    {
-		    return include APP_DIR . "views/home/index.php";
-	    }
-
-	    return 'empty';
+        $this->view->assign($person);
+	    $this->view('home/index');
     }
 
-	public function setupLayout()
+	public function setLayout()
 	{
 		$this->layout = 'this is layout';
 	}

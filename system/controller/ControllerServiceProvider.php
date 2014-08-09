@@ -12,6 +12,5 @@ class ControllerServiceProvider extends ServiceProvider
 	public function register()
 	{
 		$this->app->instance('controller', new Controller());
-		//$this->app['controller'] = new Controller();
 	}
 } 

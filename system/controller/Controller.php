@@ -10,17 +10,37 @@
 class Controller
 {
 	/**
+	 * @var object Application
+	 */
+	protected $app;
+
+	/**
 	 * The layout used by the controller.
 	 *
 	 */
 	protected $layout;
 
 	/**
+	 * @var object: View object
+	 */
+	protected $view;
+
+	public function __construct()
+	{
+		$this->view = Application::singleton()['view'];
+	}
+
+	/**
 	 * Create the layout used by the controller.
 	 *
 	 * @return void
 	 */
-	protected function setupLayout() {}
+	protected function setLayout() {}
+
+	public function view($view = '')
+	{
+		$this->view->setView($view);
+	}
 
 	/**
 	 * Execute an action on the controller.
@@ -30,19 +50,13 @@ class Controller
 	 */
 	public function callAction($method, $parameters)
 	{
-		$this->setupLayout();
+		$this->view->setLayout($this->layout);
 
-		$response = call_user_func_array(array($this, $method), $parameters);
+		call_user_func_array(array($this, $method), $parameters);
 
-		// If no response is returned from the controller action and a layout is being
-		// used we will assume we want to just return the layout view as any nested
-		// views were probably bound on this view during this controller actions.
-		if (is_null($response) && ! is_null($this->layout))
-		{
-			$response = $this->layout;
-		}
+		$content = $this->view->render();
 
-		return $response;
+		return $content;
 	}
 
 	/**

@@ -16,6 +16,18 @@ class Container implements ArrayAccess
 	 */
 	protected $instances = array();
 
+	protected static $self = null;
+
+	public static function singleton()
+	{
+		if( is_null(self::$self))
+		{
+			self::$self = new static;
+		}
+
+		return self::$self;
+	}
+
 	/**
 	 * Register an existing instance as shared in the container.
 	 *

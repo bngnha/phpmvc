@@ -12,9 +12,9 @@ return array(
 	 * Provider Class here
 	 */
 	'providers' => array(
-		'ControllerServiceProvider',
-		'RoutingServiceProvider',
 		'ViewServiceProvider',
+		'RoutingServiceProvider',
+		'ControllerServiceProvider',
 		'ExceptionServiceProvider'
 	)
 

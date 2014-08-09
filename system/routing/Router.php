@@ -42,7 +42,7 @@ class Router
 
 		$this->params = $url ? array_values($url) : [];
 
-		$content = call_user_func_array(array($this->controller, $this->method), $this->params);
+		$content = $this->controller->callAction($this->method, $this->params);
 
 		$response = new Response();
 		$response->setContent($content);
