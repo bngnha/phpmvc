@@ -6,9 +6,9 @@
  * @license     GNU General Public License version 2 or later; see LICENSE
  *
  */
-require __DIR__. '/../vendor/autoload.php';
+require BASE_DIR . '/vendor/autoload.php';
 
-require __DIR__. '/../system/application/Application.php';
+require BASE_DIR . '/system/application/Application.php';
 
 $app = Application::singleton();
 

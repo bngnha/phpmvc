@@ -117,13 +117,27 @@ class Request
 	protected $defaultLocale = 'en';
 
 	/**
+	 * @var $self Request Static Object
+	 */
+	protected static $self;
+
+	/**
 	 * Construct
 	 */
-	public function __construct()
+	public function __construct(array $query = array(),
+								array $request = array(),
+								array $attributes = array(),
+								array $cookies = array(),
+								array $files = array(),
+								array $server = array(),
+								$content = null)
 	{
-		$this->query = $_GET;
-		$this->request = $_POST;
+		$this->query = $query;
+		$this->request = $request;
 		$this->headers = $this->headers();
+		$this->cookies = $cookies;
+		$this->files = $files;
+		$this->server = $server;
 		$this->languages = null;
 		$this->charsets = null;
 		$this->encodings = null;
@@ -134,6 +148,23 @@ class Request
 		$this->basePath = null;
 		$this->method = null;
 		$this->format = null;
+	}
+
+	public function createFromGlobals()
+	{
+		if (self::$self)
+		{
+			$request = call_user_func($_GET, $_POST, array(), $_COOKIE, $_FILES, $_SERVER);
+
+			if (!$request instanceof Request)
+			{
+				throw new \LogicException('The Request factory must return an instance of Request.');
+			}
+
+			return $request;
+		}
+
+		return new static($_GET, $_POST, array(), $_COOKIE, $_FILES, $_SERVER);
 	}
 
 	public function headers()

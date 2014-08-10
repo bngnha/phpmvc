@@ -26,8 +26,7 @@ class Application extends Container
 
 	public function __construct()
 	{
-		// Register Request Object
-		$this->instance('request', 'Request');
+		$this->registerBaseBindings();
 	}
 
 	// Step 1: Load config, service provider
@@ -43,6 +42,14 @@ class Application extends Container
 		}
 
 		return $items;
+	}
+
+	public function registerBaseBindings()
+	{
+		$requestInstance = forward_static_call(array('Request', 'createFromGlobals'));
+
+		// Register Request Object
+		$this->instance('request', $requestInstance);
 	}
 
 	/**
@@ -96,6 +103,6 @@ class Application extends Container
 		// Send data to client
 		$response->send();
 
-		// Terminal all object
+		// Terminal all object: session, database connection
 	}
 } 

@@ -37,6 +37,11 @@ class Controller
 	 */
 	protected function setLayout() {}
 
+	public function assign($data)
+	{
+		$this->view->assign($data);
+	}
+
 	public function view($view = '')
 	{
 		$this->view->setView($view);

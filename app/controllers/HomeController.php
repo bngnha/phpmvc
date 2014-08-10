@@ -15,13 +15,13 @@ class HomeController extends Controller
 	    $params[1] = 1;
         $person = Person::findByColumn('id', $params[1]);
 
-        $this->view->assign($person);
+        $this->assign(compact('person'));
 	    $this->view('home/index');
     }
 
 	public function setLayout()
 	{
-		$this->layout = 'this is layout';
+		$this->layout = 'default';
 	}
 }
 

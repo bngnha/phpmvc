@@ -15,13 +15,18 @@ if (realpath($appDir) !== FALSE)
 	$appDir = realpath($appDir).'/';
 }
 
-// ensure there's a trailing slash
+error_reporting(E_ALL);
+
+// Ensure there's a trailing slash
 $appDir = rtrim($appDir, '/').'/';
+
+// Path to the root folder
+define('BASE_DIR', str_replace("\\", "/", $baseDir));
 
 // Path to the system folder
 define('APP_DIR', str_replace("\\", "/", $appDir));
 
-$app = require __DIR__.'/../bootstrap/Autoload.php';
+$app = require BASE_DIR . '/bootstrap/Autoload.php';
 
 // Execute request
 $app->run();

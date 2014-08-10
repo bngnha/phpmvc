@@ -43,11 +43,4 @@ class Route
 		$this->methods = (array) $methods;
 		$this->action = $action;
 	}
-
-	public function run()
-	{
-		$parameters = func_get_args();
-
-		return call_user_func_array($this->action, $parameters);
-	}
 } 

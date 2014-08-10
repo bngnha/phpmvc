@@ -56,16 +56,7 @@ class View
 
 	public function assign($data)
 	{
-		if(is_object($data))
-		{
-			$this->data = compact($data);
-		}
-		else if(!is_array($data))
-		{
-			$data = array($data);
-
-			array_merge_recursive($this->data, $data);
-		}
+		$this->data = $data;
 	}
 
 	public function render()
