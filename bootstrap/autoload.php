@@ -14,7 +14,7 @@ $app = Application::singleton();
 
 $providers = $app->getConfig()['providers'];
 
-// Load service prodiver
+// Load service provider
 $app->getProviderRepository()->load($app, $providers);
 
 return $app;
