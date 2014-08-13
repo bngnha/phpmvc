@@ -8,11 +8,14 @@
  */
 require BASE_DIR . '/vendor/autoload.php';
 
-require BASE_DIR . '/system/application/Application.php';
+$app = \system\application\Application::singleton();
 
-$app = Application::singleton();
+// Set application to facade
+\system\facade\Facade::setContainer($app);
 
 $providers = $app->getConfig()['providers'];
+
+\system\routing\Router::testFacade();
 
 // Load service provider
 $app->getProviderRepository()->load($app, $providers);
