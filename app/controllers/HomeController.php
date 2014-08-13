@@ -7,7 +7,7 @@
  *
  */
 
-class HomeController extends Controller
+class HomeController extends BaseController
 {
     public function indexAction($params)
     {

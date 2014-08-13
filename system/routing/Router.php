@@ -1,4 +1,4 @@
-<?php
+<?php namespace system\routing;
 /**
  * @package		phpmvc
  * @author		NTKSoft Team
@@ -6,6 +6,9 @@
  * @license     GNU General Public License version 2 or later; see LICENSE
  *
  */
+
+use \system\http\Request;
+use \system\http\Response;
 
 class Router
 {
@@ -56,5 +59,10 @@ class Router
 		{
 			return $url = explode('/', filter_var(rtrim($_GET['url'], '/'), FILTER_SANITIZE_URL));
 		}
+	}
+
+	public function testFacade()
+	{
+		return 1;
 	}
 } 

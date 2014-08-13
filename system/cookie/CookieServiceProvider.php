@@ -1,4 +1,4 @@
-<?php
+<?php namespace system\cookie;
 /**
  * @package		phpmvc
  * @author		NTKSoft Team
@@ -7,7 +7,12 @@
  *
  */
 
-class CookieServiceProvider
-{
+use \system\application\ServiceProvider;
 
+class CookieServiceProvider extends ServiceProvider
+{
+	public function register()
+	{
+		$this->app->instance('cookie', new Cookie());
+	}
 } 

@@ -1,4 +1,4 @@
-<?php
+<?php namespace system\routing;
 /**
  * @package		phpmvc
  * @author		NTKSoft Team

@@ -1,4 +1,4 @@
-<?php
+<?php namespace system\session;
 /**
  * @package		phpmvc
  * @author		NTKSoft Team
@@ -6,6 +6,7 @@
  * @license     GNU General Public License version 2 or later; see LICENSE
  *
  */
+use \system\application\ServiceProvider;
 
 class SessionServiceProvider extends ServiceProvider
 {

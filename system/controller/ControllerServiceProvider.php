@@ -1,4 +1,4 @@
-<?php
+<?php namespace system\controller;
 /**
  * @package		phpmvc
  * @author		NTKSoft Team
@@ -6,6 +6,8 @@
  * @license     GNU General Public License version 2 or later; see LICENSE
  *
  */
+
+use \system\application\ServiceProvider;
 
 class ControllerServiceProvider extends ServiceProvider
 {

@@ -1,4 +1,4 @@
-<?php
+<?php namespace system\session;
 /**
  * @package		phpmvc
  * @author		NTKSoft Team

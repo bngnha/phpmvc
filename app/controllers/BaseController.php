@@ -1,4 +1,4 @@
-<?php namespace system\cookie;
+<?php
 /**
  * @package		phpmvc
  * @author		NTKSoft Team
@@ -7,7 +7,7 @@
  *
  */
 
-class Cookie
+class BaseController extends \system\controller\Controller
 {
 
 } 

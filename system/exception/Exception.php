@@ -1,4 +1,4 @@
-<?php
+<?php namespace system\exception;
 /**
  * @package		phpmvc
  * @author		NTKSoft Team

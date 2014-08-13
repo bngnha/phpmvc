@@ -1,4 +1,4 @@
-<?php
+<?php namespace system\security;
 /**
  * @package		phpmvc
  * @author		NTKSoft Team

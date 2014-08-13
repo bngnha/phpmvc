@@ -1,4 +1,4 @@
-<?php
+<?php namespace system\view;
 /**
  * @package		phpmvc
  * @author		NTKSoft Team

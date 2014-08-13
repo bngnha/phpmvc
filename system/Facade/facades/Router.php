@@ -1,4 +1,4 @@
-<?php namespace system\cookie;
+<?php namespace system\facade\facades;
 /**
  * @package		phpmvc
  * @author		NTKSoft Team
@@ -7,7 +7,9 @@
  *
  */
 
-class Cookie
-{
+use \system\facade\Facade;
 
+class Router extends Facade
+{
+	public static function getFacadeAssessor() { return 'router'; }
 } 

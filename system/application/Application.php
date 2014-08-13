@@ -1,4 +1,4 @@
-<?php
+<?php namespace system\application;
 /**
  * @package		phpmvc
  * @author		NTKSoft Team
@@ -7,6 +7,7 @@
  *
  */
 use Illuminate\Filesystem\Filesystem;
+use system\container\Container;
 
 class Application extends Container
 {
@@ -46,7 +47,7 @@ class Application extends Container
 
 	public function registerBaseBindings()
 	{
-		$requestInstance = forward_static_call(array('Request', 'createFromGlobals'));
+		$requestInstance = forward_static_call(array('\system\http\Request', 'createFromGlobals'));
 
 		// Register Request Object
 		$this->instance('request', $requestInstance);

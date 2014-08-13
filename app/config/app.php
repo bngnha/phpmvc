@@ -12,10 +12,10 @@ return array(
 	 * Provider Class here
 	 */
 	'providers' => array(
-		'ViewServiceProvider',
-		'RoutingServiceProvider',
-		'ControllerServiceProvider',
-		'ExceptionServiceProvider'
+		'\system\view\ViewServiceProvider',
+		'\system\routing\RoutingServiceProvider',
+		'\system\controller\ControllerServiceProvider',
+		'\system\exception\ExceptionServiceProvider'
 	)
 
 );
